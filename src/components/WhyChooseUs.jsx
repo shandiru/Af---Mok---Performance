@@ -50,11 +50,17 @@ export default function WhyChooseUs() {
                 <div className="text-center max-w-3xl mx-auto mb-12">
                     <h2 className="text-4xl md:text-5xl font-extrabold">
                         <span className="text-white">Why Choose </span>
-                        <span className="text-gray-400">Us?</span>
+                        {/* logo colours: cyan → white → red */}
+                        <span className="bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                            Us?
+                        </span>
                     </h2>
                     <p className="mt-4 text-lg text-gray-300">
-                        At <span className="font-semibold text-white">AF-MOK PERFORMANCE</span>, we do more than
-                        fix cars — we unlock their full potential.
+                        At{" "}
+                        <span className="font-semibold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                            AF-MOK PERFORMANCE
+                        </span>
+                        , we do more than fix cars — we unlock their full potential.
                     </p>
                 </div>
 
@@ -65,18 +71,27 @@ export default function WhyChooseUs() {
                             key={i}
                             className="bg-black border border-slate-800 rounded-2xl p-8 text-center shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-shadow"
                         >
-                            {/* Number badge */}
+                            {/* Number badge (style unchanged; only colours updated) */}
                             <div className="mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center relative">
                                 <span className="absolute inset-0 rounded-full bg-white/5 blur-[2px]" />
                                 <span className="absolute inset-0 rounded-full ring-1 ring-white/10" />
-                                <span className="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-white text-black font-extrabold">
+                                <span
+                                    className="
+                    relative inline-flex items-center justify-center
+                    w-14 h-14 rounded-full
+                    bg-gradient-to-tr from-cyan-400 via-white to-rose-500
+                    text-black font-extrabold
+                  "
+                                >
                                     {String(i + 1).padStart(2, "0")}
                                 </span>
                             </div>
 
-                            <h3 className="text-lg md:text-xl font-extrabold text-white tracking-wide">
+                            {/* Card title in logo colours (layout unchanged) */}
+                            <h3 className="text-lg md:text-xl font-extrabold tracking-wide bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
                                 {it.title}
                             </h3>
+
                             <p className="mt-4 text-gray-300 leading-relaxed">{it.desc}</p>
                         </article>
                     ))}

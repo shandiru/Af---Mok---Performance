@@ -22,7 +22,6 @@ export default function Contact() {
     console.log("Form submitted:", formData);
   };
 
-  // Correct business info
   const phoneDisplay = "+44 7494 481443";
   const phoneHref = "tel:+447494481443";
   const emailDisplay = "afmok.performance@outlook.com";
@@ -38,8 +37,10 @@ United Kingdom`;
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">GET IN</span>{" "}
-            <span className="text-gray-400">TOUCH</span>
+            <span className="text-white">GET IN </span>
+            <span className="bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+              TOUCH
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Ready to start your transformation? Contact us today and take the
@@ -52,7 +53,7 @@ United Kingdom`;
           {/* LEFT: Contact Information */}
           <div>
             <div className="bg-black border border-slate-700 rounded-xl p-6">
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent mb-6">
                 Contact Information
               </h3>
 
@@ -62,7 +63,9 @@ United Kingdom`;
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white">Address</h4>
+                  <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                    Address
+                  </h4>
                   <p className="text-gray-300 whitespace-pre-line">{address}</p>
                 </div>
               </div>
@@ -73,10 +76,12 @@ United Kingdom`;
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white">Phone</h4>
+                  <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                    Phone
+                  </h4>
                   <a
                     href={phoneHref}
-                    className="text-blue-400 hover:text-blue-300 transition"
+                    className="text-cyan-400 hover:text-cyan-300 transition"
                   >
                     {phoneDisplay}
                   </a>
@@ -86,7 +91,7 @@ United Kingdom`;
               {/* WhatsApp */}
               <div className="flex items-start space-x-4 mb-6">
                 <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-200/50">
-                  {/* WhatsApp icon (inline) */}
+                  {/* WhatsApp icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 256 256"
@@ -99,12 +104,14 @@ United Kingdom`;
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white">WhatsApp</h4>
+                  <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                    WhatsApp
+                  </h4>
                   <a
                     href={waHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 transition"
+                    className="text-cyan-400 hover:text-cyan-300 transition"
                   >
                     Message us on WhatsApp
                   </a>
@@ -117,7 +124,9 @@ United Kingdom`;
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white">Email</h4>
+                  <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                    Email
+                  </h4>
                   <a
                     href={emailHref}
                     className="text-gray-300 hover:text-white transition break-all"
@@ -143,12 +152,12 @@ United Kingdom`;
                       placeholder="Full Name"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                       required
                     />
                   </div>
 
-                  {/* Email Address */}
+                  {/* Email */}
                   <div>
                     <input
                       id="email"
@@ -157,12 +166,12 @@ United Kingdom`;
                       placeholder="your.email@example.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                       required
                     />
                   </div>
 
-                  {/* Phone Number */}
+                  {/* Phone */}
                   <div>
                     <input
                       id="phone"
@@ -171,11 +180,11 @@ United Kingdom`;
                       placeholder="(123) 456-7890"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                   </div>
 
-                  {/* Row: Car Reg | Make & Model | Location */}
+                  {/* Car Reg | Make & Model | Location */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <input
                       id="carReg"
@@ -184,7 +193,7 @@ United Kingdom`;
                       placeholder="Car Registration"
                       value={formData.carReg}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                     <input
                       id="makeModel"
@@ -193,7 +202,7 @@ United Kingdom`;
                       placeholder="Make and Model"
                       value={formData.makeModel}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                     <input
                       id="location"
@@ -202,7 +211,7 @@ United Kingdom`;
                       placeholder="Location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                   </div>
 
@@ -215,7 +224,7 @@ United Kingdom`;
                       value={formData.message}
                       onChange={handleChange}
                       rows={6}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-md text-white placeholder-slate-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-md text-white placeholder-slate-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                       required
                     />
                   </div>
@@ -223,7 +232,7 @@ United Kingdom`;
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-white text-black hover:bg-gray-200 text-lg px-6 py-3 rounded-lg font-medium transition-colors"
+                    className="w-full bg-gradient-to-r from-cyan-400 via-white to-rose-500 text-black hover:opacity-90 text-lg px-6 py-3 rounded-lg font-bold transition-colors"
                   >
                     Send Message
                   </button>

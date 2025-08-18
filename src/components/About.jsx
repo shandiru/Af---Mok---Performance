@@ -1,3 +1,4 @@
+// About.jsx
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function About() {
@@ -47,7 +48,8 @@ export default function About() {
 
       const current = el.scrollLeft;
       const minMid = secondBlockStart2;
-      const maxMid = (slides[images.length * 2]?.offsetLeft ?? thirdBlockStart) - 1;
+      const maxMid =
+        (slides[images.length * 2]?.offsetLeft ?? thirdBlockStart) - 1;
       if (current < minMid || current > maxMid) {
         el.scrollLeft = minMid;
       }
@@ -112,19 +114,28 @@ export default function About() {
           {/* Text */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              ABOUT <span className="text-gray-400">AF-MOK</span>
+              ABOUT{" "}
+              {/* logo gradient: neon cyan -> white -> red */}
+              <span className="bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
+                AF-MOK
+              </span>
             </h2>
 
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              At AF-MOK PERFORMANCE, we're passionate about helping you get the
-              most out of your vehicle. Our team of experts specializes in
-              providing high-quality performance products, software solutions,
-              and services for cars and LCV.
+              At{" "}
+              <span className="bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent font-semibold">
+                AF-MOK PERFORMANCE
+              </span>
+              , we're passionate about helping you get the most out of your
+              vehicle. Our team of experts specializes in providing high-quality
+              performance products, software solutions, and services for cars
+              and LCV.
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
               We offer a comprehensive range of solutions tailored to your
-              vehicle's specific needs, including economy software, performance
-              software, DPF solutions, ADBLUE solutions, and EGR solutions.
+              vehicle&apos;s specific needs, including economy software,
+              performance software, DPF solutions, ADBLUE solutions, and EGR
+              solutions.
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
               With our user-friendly interfaces, exceptional customer service,
@@ -134,15 +145,21 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">1000+</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
+                  1000+
+                </div>
                 <div className="text-gray-400 text-sm">Vehicles Tuned</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">10+</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
+                  10+
+                </div>
                 <div className="text-gray-400 text-sm">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">98%</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
+                  98%
+                </div>
                 <div className="text-gray-400 text-sm">Client Satisfaction</div>
               </div>
             </div>
@@ -150,7 +167,7 @@ export default function About() {
             <button
               type="button"
               onClick={scrollToContact}
-              className="bg-white text-black hover:bg-gray-200 transition px-6 py-3 rounded-md font-semibold"
+              className="bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] text-black hover:opacity-90 transition px-6 py-3 rounded-md font-semibold"
             >
               Contact Us
             </button>

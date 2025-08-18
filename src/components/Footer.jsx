@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3">
-              <span className="text-2xl font-bold text-white">
+              <span className="text-2xl font-bold bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
                 AF-MOK <span className="text-gray-400">PERFORMANCE</span>
               </span>
             </div>
@@ -45,7 +45,7 @@ export default function Footer() {
                 />
               </a>
 
-              {/* TikTok (Custom SVG) */}
+              {/* TikTok */}
               <a
                 href="https://www.tiktok.com/@afmok.performance"
                 target="_blank"
@@ -84,7 +84,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-bold mb-4">Services</h3>
+            <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
+              Services
+            </h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a href="#services" className="hover:text-white transition-colors">
@@ -111,7 +113,9 @@ export default function Footer() {
 
           {/* Solutions */}
           <div>
-            <h3 className="text-white font-bold mb-4">Solutions</h3>
+            <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
+              Solutions
+            </h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
@@ -138,7 +142,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-bold mb-4">Contact Info</h3>
+            <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
+              Contact Info
+            </h3>
             <ul className="space-y-2 text-gray-400">
               <li>AF-MOK Performance</li>
               <li>
