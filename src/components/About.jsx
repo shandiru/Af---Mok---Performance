@@ -3,7 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <section id="about" className="py-20 bg-black text-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-15">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
