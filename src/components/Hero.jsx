@@ -8,26 +8,37 @@ export default function Hero() {
     );
   };
 
+  const scrollToServices = () => {
+    const section = document.getElementById("services");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToAbout = () => {
+    const section = document.getElementById("about");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden"
     >
-      {/* Background Video (served from /public) */}
+      {/* Background Video */}
       <video
         autoPlay
         loop
-        muted            /* required for autoplay on most browsers */
-        playsInline      /* iOS/Safari inline playback */
+        muted
+        playsInline
         preload="auto"
         aria-hidden="true"
         onError={handleVideoError}
         className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-60 z-0"
       >
-        {/* Use absolute URL from the root because the file is in /public */}
         <source src="/video.mp4" type="video/mp4" />
-        {/* Temporarily add controls to test playback if needed */}
-        {/* <track kind="captions" /> */}
         Your browser does not support the video tag.
       </video>
 
@@ -48,9 +59,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* Primary button */}
+            {/* Primary button → scroll to services */}
             <button
               type="button"
+              onClick={scrollToServices}
               className="flex items-center justify-center bg-white text-black hover:bg-gray-200 text-lg px-8 py-3 rounded-lg font-medium"
             >
               Explore Services
@@ -69,9 +81,10 @@ export default function Hero() {
               </svg>
             </button>
 
-            {/* Secondary button */}
+            {/* Secondary button → scroll to about */}
             <button
               type="button"
+              onClick={scrollToAbout}
               className="border border-gray-400 text-gray-300 hover:bg-gray-800 text-lg px-8 py-3 rounded-lg font-medium bg-transparent"
             >
               Learn More

@@ -81,7 +81,12 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Email</h3>
-                <p className="text-gray-300">info@afmokperformance.com</p>
+                <a
+                  href="mailto:info@afmokperformance.com"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  info@afmokperformance.com
+                </a>
               </div>
             </div>
 
@@ -92,13 +97,18 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Phone</h3>
-                <p className="text-gray-300">+1 (555) 123-4567</p>
+                <a
+                  href="tel:+15551234567"
+                  className="text-gray-300 hover:text-white transition"
+                >
+                  +1 (555) 123-4567
+                </a>
               </div>
             </div>
 
             {/* Location */}
             <div className="flex items-center space-x-4">
-              <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-2 00/50">
+              <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-200/50">
                 <MapPin size={24} />
               </div>
               <div>

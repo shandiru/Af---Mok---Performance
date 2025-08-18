@@ -43,22 +43,22 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#services" className="hover:text-white transition-colors">
                   Performance Software
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#services" className="hover:text-white transition-colors">
                   Economy Tuning
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#services" className="hover:text-white transition-colors">
                   DPF Solutions
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="#services" className="hover:text-white transition-colors">
                   EGR & ADBLUE Delete
                 </a>
               </li>

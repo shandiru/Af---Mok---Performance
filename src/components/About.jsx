@@ -1,6 +1,13 @@
 import React from "react";
 
 export default function About() {
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-black text-white">
       <div className="container mx-auto px-4 md:px-15">
@@ -45,21 +52,21 @@ export default function About() {
               </div>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button → scroll to contact */}
             <button
               type="button"
+              onClick={scrollToContact}
               className="bg-white text-black hover:bg-gray-200 transition px-6 py-3 rounded-md font-semibold"
             >
               Contact Us
             </button>
           </div>
 
-          {/* Image (fixed) */}
+          {/* Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-lg">
-            {/* Keep a consistent aspect ratio across breakpoints */}
             <div className="relative aspect-[16/9] lg:aspect-[4/3]">
               <img
-                src="/1.png"                 /* must be in /public as 1.png */
+                src="/1.png"
                 alt="AF-MOK Performance Workshop"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
