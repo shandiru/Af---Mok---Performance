@@ -7,19 +7,21 @@ import About from "./components/About";
 import Review from "./components/Review";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import WhyChooseUs from "./components/WhyChooseUs";
 
 
 
 function App() {
   return (
     <>
-     <Header />
+      <Header />
       <Hero />
-     <Service />
+      <Service />
       <About />
       <Review />
+      <WhyChooseUs />
       <Contact />
-     <Footer />
+      <Footer />
     </>
   );
 }
