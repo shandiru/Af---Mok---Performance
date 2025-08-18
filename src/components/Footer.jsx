@@ -19,22 +19,30 @@ export default function Footer() {
               reliability.
             </p>
             <div className="flex space-x-4">
-              <Facebook
-                className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-                size={20}
-              />
-              <Instagram
-                className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-                size={20}
-              />
-              <Twitter
-                className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-                size={20}
-              />
-              <Youtube
-                className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-                size={20}
-              />
+              <a href="#" aria-label="Facebook">
+                <Facebook
+                  className="text-gray-400 hover:text-white cursor-pointer transition-colors"
+                  size={20}
+                />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <Instagram
+                  className="text-gray-400 hover:text-white cursor-pointer transition-colors"
+                  size={20}
+                />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <Twitter
+                  className="text-gray-400 hover:text-white cursor-pointer transition-colors"
+                  size={20}
+                />
+              </a>
+              <a href="#" aria-label="YouTube">
+                <Youtube
+                  className="text-gray-400 hover:text-white cursor-pointer transition-colors"
+                  size={20}
+                />
+              </a>
             </div>
           </div>
 
@@ -42,26 +50,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Performance Software
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Economy Tuning
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  DPF Solutions
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  EGR & ADBLUE Delete
-                </a>
-              </li>
+              <li><a href="#services" className="hover:text-white transition-colors">Performance Software</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Economy Tuning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">DPF Solutions</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">EGR &amp; ADBLUE Delete</a></li>
             </ul>
           </div>
 
@@ -69,26 +61,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold mb-4">Solutions</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Stage 1 / Stage 2 Remap
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Gearbox Tuning
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Speed Limiter Removal
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Diagnostic Services
-                </a>
-              </li>
+              <li><a href="#" className="hover:text-white transition-colors">Stage 1 / Stage 2 Remap</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Gearbox Tuning</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Speed Limiter Removal</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Diagnostic Services</a></li>
             </ul>
           </div>
 
@@ -98,8 +74,28 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>AF-MOK Performance</li>
               <li>No. 123, Tuning Street, Colombo, Sri Lanka</li>
-              <li>+94 77 123 4567</li>
-              <li>info@afmokperformance.com</li>
+
+              {/* CLICKABLE PHONE */}
+              <li>
+                <a
+                  href="tel:+94771234567"
+                  className="hover:text-white transition-colors"
+                  aria-label="Call AF-MOK Performance"
+                >
+                  +94 77 123 4567
+                </a>
+              </li>
+
+              {/* CLICKABLE EMAIL */}
+              <li>
+                <a
+                  href="mailto:info@afmokperformance.com"
+                  className="hover:text-white transition-colors break-all"
+                  aria-label="Email AF-MOK Performance"
+                >
+                  info@afmokperformance.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>
