@@ -77,7 +77,11 @@ export default function Review() {
           modules={[Pagination, Autoplay, A11y]}
           loop
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           spaceBetween={16}
           breakpoints={{
             0: { slidesPerView: 1 },
@@ -87,10 +91,12 @@ export default function Review() {
           className="!pb-12"
         >
           {testimonials.map((t, i) => (
-            <SwiperSlide key={i}>
-              <div className="h-full bg-black border border-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-shadow">
-                <p className="text-gray-300 mb-4">"{t.quote}"</p>
-                <div className="text-sm text-gray-500 font-semibold">– {t.name}</div>
+            <SwiperSlide key={i} className="h-auto">
+              <div className="flex flex-col h-full bg-black border border-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-shadow">
+                <p className="text-gray-300 mb-4 flex-grow">"{t.quote}"</p>
+                <div className="text-sm text-gray-500 font-semibold mt-auto">
+                  – {t.name}
+                </div>
               </div>
             </SwiperSlide>
           ))}

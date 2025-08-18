@@ -48,7 +48,10 @@ export default function WhyChooseUs() {
 
                 {/* Heading + Sub */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white">Why Choose Us?</h2>
+                    <h2 className="text-4xl md:text-5xl font-extrabold">
+                        <span className="text-white">Why Choose </span>
+                        <span className="text-gray-400">Us?</span>
+                    </h2>
                     <p className="mt-4 text-lg text-gray-300">
                         At <span className="font-semibold text-white">AF-MOK PERFORMANCE</span>, we do more than
                         fix cars — we unlock their full potential.
@@ -64,11 +67,8 @@ export default function WhyChooseUs() {
                         >
                             {/* Number badge */}
                             <div className="mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center relative">
-                                {/* soft outer glow (matches dark theme) */}
                                 <span className="absolute inset-0 rounded-full bg-white/5 blur-[2px]" />
-                                {/* ring */}
                                 <span className="absolute inset-0 rounded-full ring-1 ring-white/10" />
-                                {/* inner core */}
                                 <span className="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-white text-black font-extrabold">
                                     {String(i + 1).padStart(2, "0")}
                                 </span>

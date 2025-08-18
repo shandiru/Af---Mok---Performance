@@ -5,22 +5,20 @@ export default function Header() {
 
   // Your WhatsApp number (no + and no spaces for wa.me)
   const waNumber = "447494481443";
-  const waHref = `https://wa.me/${waNumber}`; // add ?text=... if you want a prefilled message
+  const waHref = `https://wa.me/${waNumber}`;
 
   return (
     <header className="fixed top-0 w-full bg-black/90 backdrop-blur-sm z-50 border-b border-gray-800">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo + Brand */}
+          {/* Logo only */}
           <div className="flex items-center min-w-0">
             <img
               src="/logo.jpeg"
               alt="AF-MOK Logo"
-              className="rounded-full w-9 h-9 lg:w-10 lg:h-10 flex-shrink-0"
+              className="rounded-full w-14 h-14 lg:w-16 lg:h-16 flex-shrink-0"
+            // increased from w-9 h-9 → w-14 h-14
             />
-            <span className="ml-3 text-xl lg:text-2xl font-bold text-white whitespace-nowrap">
-              AF-MOK <span className="text-gray-400">PERFORMANCE</span>
-            </span>
           </div>
 
           {/* Desktop Navigation */}
