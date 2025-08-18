@@ -22,12 +22,15 @@ export default function Contact() {
     console.log("Form submitted:", formData);
   };
 
-  // Content per the reference image
-  const phoneDisplay = "+44 7713 354794";
-  const phoneHref = "tel:+447713354794";
-  const emailDisplay = "K4sey@hotmail.co.uk";
-  const emailHref = "mailto:K4sey@hotmail.co.uk";
-  const waHref = "https://wa.me/447713354794"; // opens WhatsApp chat
+  // Correct business info
+  const phoneDisplay = "+44 7494 481443";
+  const phoneHref = "tel:+447494481443";
+  const emailDisplay = "afmok.performance@outlook.com";
+  const emailHref = "mailto:afmok.performance@outlook.com";
+  const waHref = "https://wa.me/447494481443";
+  const address = `Unit 6, Spon Lane Trading Estate,
+Varney Ave, West Bromwich B70 6AE,
+United Kingdom`;
 
   return (
     <section id="contact" className="py-20 bg-black">
@@ -49,13 +52,19 @@ export default function Contact() {
           {/* LEFT: Contact Information */}
           <div>
             <div className="bg-black border border-slate-700 rounded-xl p-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Contact Information
+              </h3>
 
-              {/* Hours */}
-              <div className="mb-8">
-                <div className="text-lg font-semibold text-white">Our Hours</div>
-                <div className="text-gray-400 mt-1">Monday - Thursday : 09:00 - 17:00</div>
-                <div className="text-gray-400">Friday - Sunday : Closed</div>
+              {/* Address */}
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-200/50">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-white">Address</h4>
+                  <p className="text-gray-300 whitespace-pre-line">{address}</p>
+                </div>
               </div>
 
               {/* Phone */}
@@ -65,7 +74,10 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white">Phone</h4>
-                  <a href={phoneHref} className="text-blue-400 hover:text-blue-300 transition">
+                  <a
+                    href={phoneHref}
+                    className="text-blue-400 hover:text-blue-300 transition"
+                  >
                     {phoneDisplay}
                   </a>
                 </div>
@@ -106,16 +118,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white">Email</h4>
-                  <a href={emailHref} className="text-gray-300 hover:text-white transition break-all">
+                  <a
+                    href={emailHref}
+                    className="text-gray-300 hover:text-white transition break-all"
+                  >
                     {emailDisplay}
                   </a>
                 </div>
-              </div>
-
-              {/* Service Area */}
-              <div className="bg-black border border-slate-700 rounded-xl p-6">
-                <h4 className="text-xl font-bold text-white mb-1">Service Area</h4>
-                <p className="text-gray-300">15 Mile Radius Surrounding Leicestershire.</p>
               </div>
             </div>
           </div>
@@ -127,7 +136,6 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Full Name */}
                   <div>
-                    <label className="sr-only" htmlFor="fullName">Full Name</label>
                     <input
                       id="fullName"
                       type="text"
@@ -142,7 +150,6 @@ export default function Contact() {
 
                   {/* Email Address */}
                   <div>
-                    <label className="sr-only" htmlFor="email">Email Address</label>
                     <input
                       id="email"
                       type="email"
@@ -157,7 +164,6 @@ export default function Contact() {
 
                   {/* Phone Number */}
                   <div>
-                    <label className="sr-only" htmlFor="phone">Phone Number</label>
                     <input
                       id="phone"
                       type="tel"
@@ -169,49 +175,39 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Row: Car Registration | Make and Model | Location */}
+                  {/* Row: Car Reg | Make & Model | Location */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <label className="sr-only" htmlFor="carReg">Car Registration</label>
-                      <input
-                        id="carReg"
-                        type="text"
-                        name="carReg"
-                        placeholder="Car Registration"
-                        value={formData.carReg}
-                        onChange={handleChange}
-                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
-                      />
-                    </div>
-                    <div>
-                      <label className="sr-only" htmlFor="makeModel">Make and Model</label>
-                      <input
-                        id="makeModel"
-                        type="text"
-                        name="makeModel"
-                        placeholder="Make and Model"
-                        value={formData.makeModel}
-                        onChange={handleChange}
-                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
-                      />
-                    </div>
-                    <div>
-                      <label className="sr-only" htmlFor="location">Location</label>
-                      <input
-                        id="location"
-                        type="text"
-                        name="location"
-                        placeholder="Location"
-                        value={formData.location}
-                        onChange={handleChange}
-                        className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
-                      />
-                    </div>
+                    <input
+                      id="carReg"
+                      type="text"
+                      name="carReg"
+                      placeholder="Car Registration"
+                      value={formData.carReg}
+                      onChange={handleChange}
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                    />
+                    <input
+                      id="makeModel"
+                      type="text"
+                      name="makeModel"
+                      placeholder="Make and Model"
+                      value={formData.makeModel}
+                      onChange={handleChange}
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                    />
+                    <input
+                      id="location"
+                      type="text"
+                      name="location"
+                      placeholder="Location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                    />
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="sr-only" htmlFor="message">Message</label>
                     <textarea
                       id="message"
                       name="message"
