@@ -25,37 +25,34 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="py-20 bg-[#0f172a]">
-      {/* Constrain width on big screens + comfy padding on small screens */}
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 xl:px-0">
+      <div className="container mx-auto px-4 md:px-15">
         {/* Section Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">OUR</span>{" "}
             <span className="text-gray-400">SERVICES</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Vehicle performance and emissions software solutions, customized for
             your specific driving needs
           </p>
         </div>
 
         {/* Service Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
               className="bg-black border border-gray-800 hover:border-gray-600 transition-colors rounded-xl shadow-md"
             >
-              <div className="p-8 text-center">
-                <div className="text-white mb-5 flex justify-center">
+              <div className="p-6 text-center">
+                <div className="text-white mb-4 flex justify-center">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  {service.description}
-                </p>
+                <p className="text-gray-300">{service.description}</p>
               </div>
             </div>
           ))}

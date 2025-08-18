@@ -5,22 +5,23 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full bg-black/90 backdrop-blur-sm z-50 border-b border-gray-800">
-      <div className="container mx-auto px-3 sm:px-4">
+      {/* Constrain width on desktop */}
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Brand */}
           <div className="flex items-center min-w-0">
             <img
               src="/logo.jpeg"
               alt="AF-MOK Logo"
-              className="rounded-full w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0"
+              className="rounded-full w-9 h-9 lg:w-10 lg:h-10 flex-shrink-0"
             />
-            <span className="ml-2 text-lg sm:text-2xl font-bold text-white truncate">
+            <span className="ml-3 text-xl lg:text-2xl font-bold text-white whitespace-nowrap">
               AF-MOK <span className="text-gray-400">PERFORMANCE</span>
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             <a href="#home" className="text-gray-300 hover:text-white transition-colors">
               Home
             </a>
@@ -42,7 +43,7 @@ export default function Header() {
           <button
             type="button"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="ml-auto md:hidden text-white inline-flex items-center justify-center p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
+            className="ml-2 md:hidden text-white inline-flex items-center justify-center p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
             onClick={() => setIsMenuOpen((v) => !v)}
           >
             {isMenuOpen ? (
@@ -64,6 +65,7 @@ export default function Header() {
               <a href="#home" className="text-gray-300 hover:text-white transition-colors">Home</a>
               <a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a>
               <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
+              <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
               <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
             </div>
           </nav>
