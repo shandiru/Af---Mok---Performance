@@ -1,21 +1,61 @@
+// Review.jsx
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Review() {
   const testimonials = [
     {
       quote:
-        "I was blown away by the performance upgrades AF-MOK PERFORMANCE provided for my car. It's like driving a whole new vehicle!",
-      name: "Payton Hillman",
+        "What sets Af-mok performance apart is their attention to detail, strong communication skills, and dedication to understanding the core needs of a project. Whether it’s writing clean, maintainable code or navigating complex challenges, they approach every task with professionalism and enthusiasm. I highly recommend Af-mok performance to anyone looking for a skilled and reliable software developer.",
+      name: "Catalina Mahu",
     },
     {
       quote:
-        "The team at AF-MOK PERFORMANCE went above and beyond to help me find the right solutions for my vehicle. Their expertise and dedication to customer service are unmatched!",
-      name: "Avery Smith",
+        "Made an enquiry that was quickly answered. Then they managed to fit me in at short notice to make my slow van a bit less slow. Really friendly and professional service, van feels considerably better now.",
+      name: "Marc",
     },
     {
       quote:
-        "I can't thank AF-MOK PERFORMANCE enough for helping me reduce my vehicle's emissions. Their DPF and ADBLUE solutions have made a world of difference!",
-      name: "Jessie Brown",
+        "Today was sorted dpf problems. Done 1stage + dpf off remap for engine and remap for gearbox. Now car has better fuel consumption and better response to accelerator pedal. Great job. Highly recommend.",
+      name: "Armands Naudins",
+    },
+    {
+      quote:
+        "Florin kindly explained to me what he will do, regarding his work on my A7. Super professional! Now my car has super powers. Thank you, Florin!",
+      name: "Mihai Nechifor",
+    },
+    {
+      quote:
+        "Very punctual and polite, very knowledgeable and give great advice on the work.",
+      name: "Matt Whittaker",
+    },
+    {
+      quote:
+        "I use them quite frequently. From usual service to remapping or anything related to vehicles they can help! I cannot recommend enough.",
+      name: "Alina Florentina Mocanu",
+    },
+    {
+      quote:
+        "Highly recommended. Florin is a top guy and very well experienced! Very helpful. Explained everything. Even explained why I shouldn't do few things to my engine. Booked in to the local garage for some work. Florin was on time and did excellent work. Car running excellent on stage 1 map. Hope see you soon my friend.",
+      name: "Ferenc Toth",
+    },
+    {
+      quote:
+        "Today I went to AF-MOK REMAPPING with my van for a check and a work on it and I am very satisfied. They are not expensive for labor and do a good job and advise you on what to do next. Thank you very much!",
+      name: "Marian Minzat",
+    },
+    {
+      quote:
+        "Brilliant service. Highly recommended. Had loads of cars done in the past couple years and all my family and friends and customers use him. No trouble, always there, no excuses. Will be using him again in the future.",
+      name: "Thomas Kirkham",
+    },
+    {
+      quote:
+        "Very happy with the work I had done on my Insignia. Top bloke, on time, very helpful. EGR, DPF delete and mapped—now runs like a dream. Respect.",
+      name: "Steve Bell",
     },
   ];
 
@@ -32,20 +72,29 @@ export default function Review() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-black border border-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-shadow"
-            >
-              <p className="text-gray-300 mb-4">"{testimonial.quote}"</p>
-              <div className="text-sm text-gray-500 font-semibold">
-                – {testimonial.name}
+        {/* Slider */}
+        <Swiper
+          modules={[Pagination, Autoplay, A11y]}
+          loop
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          spaceBetween={16}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="!pb-12"
+        >
+          {testimonials.map((t, i) => (
+            <SwiperSlide key={i}>
+              <div className="h-full bg-black border border-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-shadow">
+                <p className="text-gray-300 mb-4">"{t.quote}"</p>
+                <div className="text-sm text-gray-500 font-semibold">– {t.name}</div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
