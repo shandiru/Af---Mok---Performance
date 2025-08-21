@@ -1,21 +1,23 @@
 'use client'
 
-import React, { useState } from 'react'
-import Marquee from 'react-fast-marquee'
+import React from 'react'
 
 export default function About() {
-  // Images should exist in /public
   const images = [
     '/1.jpeg', '/2.jpeg', '/3.jpeg', '/4.jpeg',
     '/5.jpeg', '/6.jpeg', '/7.jpeg', '/8.jpeg'
   ]
 
-  const [play, setPlay] = useState(true)
-
   const scrollToContact = () => {
     const el = document.getElementById('contact')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
+
+  // Tuning
+  const n = images.length || 1
+  const secondsPerImage = 10 // slower than 4; increase to slow further
+  const gapPx = 16
+  const EASING = 'cubic-bezier(0.4, 0, 0.2, 1)' // use 'linear' for constant ticker
 
   return (
     <section id="about" className="py-20 bg-black text-white">
@@ -80,42 +82,58 @@ export default function About() {
             </button>
           </div>
 
-          {/* Right: Seamless marquee (iPhone-friendly, no overlap) */}
-          <div className="relative rounded-2xl overflow-hidden shadow-lg">
-            <Marquee
-              play={play}
-              pauseOnHover
-              speed={40}
-              gradient
-              gradientColor={[0, 0, 0]}
-              gradientWidth={96}
-              onTouchStart={() => setPlay(false)}
-              onTouchEnd={() => setPlay(true)}
-              onMouseDown={() => setPlay(false)}
-              onMouseUp={() => setPlay(true)}
+          {/* Right: Seamless CSS-only auto-scroller (smooth) */}
+          <div
+            className="relative overflow-hidden rounded-2xl shadow-lg group"
+            style={{ '--gap': `${gapPx}px` }}  // ✅ plain string key
+          >
+            <div
+              className="relative h-[20rem] md:h-[24rem] lg:h-[26rem]"
+              style={{ margin: '0 calc(var(--gap) * -1)' }}
             >
-              {images.map((src, idx) => (
-                <div
-                  key={idx}
-                  // Prevent shrinking + give each slide its own width
-                  className="
-                    flex-none mx-2
-                    min-w-[220px] sm:min-w-[260px] md:min-w-[300px] lg:min-w-[360px]
-                    h-[18rem] sm:h-[20rem] md:h-[22rem] lg:h-[24rem]
-                    flex items-center justify-center
-                  "
-                >
-                  <img
-                    src={src}
-                    alt={`Workshop ${idx + 1}`}
-                    className="h-full w-full object-contain rounded-xl bg-black"
-                    loading="lazy"
-                    decoding="async"
-                    draggable={false}
-                  />
-                </div>
-              ))}
-            </Marquee>
+              <div
+                className="flex h-full will-change-transform"
+                style={{
+                  '--n': n,                                // ✅ plain string key
+                  '--dur': `${n * secondsPerImage}s`,      // ✅ plain string key
+                  animation: `aboutscroll var(--dur) ${EASING} infinite`,
+                }}
+              >
+                {[...images, ...images].map((src, i) => (
+                  <div
+                    key={i}
+                    className="w-full flex-[0_0_100%] h-full"
+                    style={{ boxSizing: 'border-box', padding: '0 var(--gap)' }}
+                  >
+                    <div className="h-full w-full overflow-hidden rounded-xl bg-black">
+                      <img
+                        src={src}
+                        alt={`Workshop ${i + 1}`}
+                        className="block h-full w-full object-contain"
+                        loading="lazy"
+                        decoding="async"
+                        draggable={false}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Optional: soft gradient edges */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-black to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-black to-transparent" />
+
+            {/* Pause on hover (desktop) */}
+            <style jsx>{`
+              .group:hover div[style*='aboutscroll'] {
+                animation-play-state: paused;
+              }
+              @keyframes aboutscroll {
+                from { transform: translateX(0); }
+                to { transform: translateX(calc(-100% * var(--n))); }
+              }
+            `}</style>
           </div>
         </div>
       </div>
