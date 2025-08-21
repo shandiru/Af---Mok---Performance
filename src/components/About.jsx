@@ -15,9 +15,9 @@ export default function About() {
 
   // Tuning
   const n = images.length || 1
-  const secondsPerImage = 10 // slower than 4; increase to slow further
+  const secondsPerImage = 10   // higher = slower (linear)
   const gapPx = 16
-  const EASING = 'cubic-bezier(0.4, 0, 0.2, 1)' // use 'linear' for constant ticker
+  const EASING = 'linear'      // constant speed
 
   return (
     <section id="about" className="py-20 bg-black text-white">
@@ -82,10 +82,10 @@ export default function About() {
             </button>
           </div>
 
-          {/* Right: Seamless CSS-only auto-scroller (smooth) */}
+          {/* Right: Seamless CSS-only auto-scroller (linear) */}
           <div
             className="relative overflow-hidden rounded-2xl shadow-lg group"
-            style={{ '--gap': `${gapPx}px` }}  // ✅ plain string key
+            style={{ '--gap': `${gapPx}px` }}
           >
             <div
               className="relative h-[20rem] md:h-[24rem] lg:h-[26rem]"
@@ -94,8 +94,8 @@ export default function About() {
               <div
                 className="flex h-full will-change-transform"
                 style={{
-                  '--n': n,                                // ✅ plain string key
-                  '--dur': `${n * secondsPerImage}s`,      // ✅ plain string key
+                  '--n': n,
+                  '--dur': `${n * secondsPerImage}s`,
                   animation: `aboutscroll var(--dur) ${EASING} infinite`,
                 }}
               >
