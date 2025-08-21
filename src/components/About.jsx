@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Marquee from 'react-fast-marquee'
 
 export default function About() {
-  // Put these images in /public (e.g., public/1.jpeg ...)
+  // Images should exist in /public
   const images = [
     '/1.jpeg', '/2.jpeg', '/3.jpeg', '/4.jpeg',
     '/5.jpeg', '/6.jpeg', '/7.jpeg', '/8.jpeg'
@@ -80,31 +80,35 @@ export default function About() {
             </button>
           </div>
 
-          {/* Right: Seamless marquee (iPhone-friendly) */}
+          {/* Right: Seamless marquee (iPhone-friendly, no overlap) */}
           <div className="relative rounded-2xl overflow-hidden shadow-lg">
             <Marquee
               play={play}
               pauseOnHover
-              speed={40}              // adjust speed to taste
-              gradient                // soft fade edges (built-in)
-              gradientColor={[0, 0, 0]} // black background
-              gradientWidth={96}      // ~24px = 1.5rem * 16? here 96px
-              onTouchStart={() => setPlay(false)} // pause on touch (iOS)
-              onTouchEnd={() => setPlay(true)}    // resume on release
-              onMouseDown={() => setPlay(false)}  // pause on click/drag (desktop)
+              speed={40}
+              gradient
+              gradientColor={[0, 0, 0]}
+              gradientWidth={96}
+              onTouchStart={() => setPlay(false)}
+              onTouchEnd={() => setPlay(true)}
+              onMouseDown={() => setPlay(false)}
               onMouseUp={() => setPlay(true)}
             >
-              {/* Each item in the marquee */}
               {images.map((src, idx) => (
                 <div
                   key={idx}
-                  className="mx-2 flex items-center justify-center"
-                  style={{ height: '24rem' }}
+                  // Prevent shrinking + give each slide its own width
+                  className="
+                    flex-none mx-2
+                    min-w-[220px] sm:min-w-[260px] md:min-w-[300px] lg:min-w-[360px]
+                    h-[18rem] sm:h-[20rem] md:h-[22rem] lg:h-[24rem]
+                    flex items-center justify-center
+                  "
                 >
                   <img
                     src={src}
                     alt={`Workshop ${idx + 1}`}
-                    className="h-full w-auto object-contain rounded-xl bg-black"
+                    className="h-full w-full object-contain rounded-xl bg-black"
                     loading="lazy"
                     decoding="async"
                     draggable={false}
