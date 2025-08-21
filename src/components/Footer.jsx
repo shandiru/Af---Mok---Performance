@@ -182,7 +182,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 AF-MOK Performance. All rights reserved.</p>
+          <p>&copy; 2025 AF-MOK Performance. All rights reserved.</p>
         </div>
       </div>
     </footer>

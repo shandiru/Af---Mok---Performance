@@ -20,13 +20,20 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+
+    // WhatsApp message format with form data
+    const waMessage = `Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`;
+
+    // Encoding message for WhatsApp
+    const waHref = `https://wa.me/94721159868?text=${encodeURIComponent(waMessage)}`;
+    
+    // Redirect to WhatsApp with the message
+    window.open(waHref, "_blank");
   };
 
   const phoneDisplay = "+44 7494 481443";
   const phoneHref = "tel:+447494481443";
   const emailDisplay = "afmok.performance@outlook.com";
-  const emailHref = "mailto:afmok.performance@outlook.com";
-  const waHref = "https://wa.me/447494481443";
   const address = `Unit 6, Spon Lane Trading Estate,
 Varney Ave, West Bromwich B70 6AE,
 United Kingdom`;
@@ -108,7 +115,7 @@ United Kingdom`;
                     WhatsApp
                   </h4>
                   <a
-                    href={waHref}
+                    href={`https://wa.me/94721159868?text=${encodeURIComponent(`Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:text-cyan-300 transition"
@@ -127,12 +134,16 @@ United Kingdom`;
                   <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
                     Email
                   </h4>
+
                   <a
-                    href={emailHref}
-                    className="text-gray-300 hover:text-white transition break-all"
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailDisplay}&su=Inquiry%20of%20Website`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 hover:text-cyan-300 transition"
                   >
                     {emailDisplay}
                   </a>
+
                 </div>
               </div>
             </div>
