@@ -139,7 +139,7 @@ United Kingdom`;
                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailDisplay}&su=Inquiry%20of%20Website`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition break-all"
+                    className="text-cyan-400 hover:text-cyan-300 transition"
                   >
                     {emailDisplay}
                   </a>
