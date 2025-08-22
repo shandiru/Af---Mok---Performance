@@ -21,14 +21,25 @@ export default function Contact() {
     e.preventDefault();
     console.log("Form submitted:", formData);
 
-    // WhatsApp message format with form data
+    // Create the message with form data
     const waMessage = `Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`;
-
-    // Encoding message for WhatsApp
-    const waHref = `https://wa.me/94721159868?text=${encodeURIComponent(waMessage)}`;
     
-    // Redirect to WhatsApp with the message
+    // Encoding message for WhatsApp
+    const waHref = `https://wa.me/94754507566?text=${encodeURIComponent(waMessage)}`;
+    
+    // Open WhatsApp with the pre-filled message
     window.open(waHref, "_blank");
+
+    // Reset form data to initial values
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      carReg: "",
+      makeModel: "",
+      location: "",
+      message: "",
+    });
   };
 
   const phoneDisplay = "+44 7494 481443";
@@ -115,7 +126,7 @@ United Kingdom`;
                     WhatsApp
                   </h4>
                   <a
-                    href={`https://wa.me/94721159868?text=${encodeURIComponent(`Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`)}`}
+                    href={`https://wa.me/94754507566?text=${encodeURIComponent(`Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:text-cyan-300 transition"
@@ -245,7 +256,7 @@ United Kingdom`;
                     type="submit"
                     className="w-full bg-gradient-to-r from-cyan-400 via-white to-rose-500 text-black hover:opacity-90 text-lg px-6 py-3 rounded-lg font-bold transition-colors"
                   >
-                    Send Message
+                    Send Message Via Whatsapp
                   </button>
                 </form>
               </div>
