@@ -25,7 +25,7 @@ export default function Contact() {
     const waMessage = `Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`;
     
     // Encoding message for WhatsApp
-    const waHref = `https://wa.me/94754507566?text=${encodeURIComponent(waMessage)}`;
+    const waHref = `https://wa.me/447494481443?text=${encodeURIComponent(waMessage)}`;
     
     // Open WhatsApp with the pre-filled message
     window.open(waHref, "_blank");
@@ -126,7 +126,7 @@ United Kingdom`;
                     WhatsApp
                   </h4>
                   <a
-                    href={`https://wa.me/94754507566?text=${encodeURIComponent(`Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`)}`}
+                    href={`https://wa.me/447494481443?text=${encodeURIComponent(`Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:text-cyan-300 transition"
