@@ -1,11 +1,17 @@
 import React from "react";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
+  const address =
+    "AF-MOK Performance, Unit 6, Spon Lane Trading Estate, Varney Ave, West Bromwich B70 6AE, United Kingdom";
+  const mapsUrl =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(address);
+
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12">
       <div className="container mx-auto px-4 md:px-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3">
@@ -63,22 +69,6 @@ export default function Footer() {
                   <path d="M240 80a64 64 0 0 1-64-64h-32v168a40 40 0 1 1-40-40 39.6 39.6 0 0 1 8 .8V112a72 72 0 1 0 64 71.6V97.7A95.6 95.6 0 0 0 240 112Z" />
                 </svg>
               </a>
-
-              {/* Twitter */}
-              <a href="#" aria-label="Twitter">
-                <Twitter
-                  className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-                  size={20}
-                />
-              </a>
-
-              {/* YouTube */}
-              <a href="#" aria-label="YouTube">
-                <Youtube
-                  className="text-gray-400 hover:text-white cursor-pointer transition-colors"
-                  size={20}
-                />
-              </a>
             </div>
           </div>
 
@@ -111,35 +101,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Solutions */}
-          <div>
-            <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
-              Solutions
-            </h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Stage 1 / Stage 2 Remap
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Gearbox Tuning
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Speed Limiter Removal
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Diagnostic Services
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact Info */}
           <div>
             <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
@@ -148,11 +109,19 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>AF-MOK Performance</li>
               <li>
-                Unit 6, Spon Lane Trading Estate,
-                <br />
-                Varney Ave, West Bromwich B70 6AE,
-                <br />
-                United Kingdom
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label="View AF-MOK Performance on Google Maps"
+                >
+                  Unit 6, Spon Lane Trading Estate,
+                  <br />
+                  Varney Ave, West Bromwich B70 6AE,
+                  <br />
+                  United Kingdom
+                </a>
               </li>
 
               {/* Phone */}
