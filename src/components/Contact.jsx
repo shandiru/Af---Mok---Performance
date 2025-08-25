@@ -1,6 +1,41 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
+// Reusable InputField component
+function InputField({ label, type = "text", name, placeholder, value, onChange, error, required = false, textarea = false, rows = 3 }) {
+  const baseClasses = "w-full bg-slate-800 border text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2";
+  const errorClasses = error ? "border-red-500 focus:ring-red-500" : "border-slate-700 focus:ring-cyan-400";
+
+  return (
+    <div>
+      {textarea ? (
+        <textarea
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          rows={rows}
+          className={`${baseClasses} ${errorClasses}`}
+          required={required}
+        />
+      ) : (
+        <input
+          id={name}
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          className={`${baseClasses} ${errorClasses}`}
+          required={required}
+        />
+      )}
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+    </div>
+  );
+}
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -12,24 +47,40 @@ export default function Contact() {
     message: "",
   });
 
+  const [errors, setErrors] = useState({ phone: "", email: "" });
+
+  const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((p) => ({ ...p, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "phone") {
+      setErrors((prev) => ({
+        ...prev,
+        phone: phoneRegex.test(value)
+          ? ""
+          : "Invalid UK phone number. Use +44 or 0 followed by 9–10 digits.",
+      }));
+    }
+
+    if (name === "email") {
+      setErrors((prev) => ({
+        ...prev,
+        email: emailRegex.test(value) ? "" : "Invalid email address format.",
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (errors.phone || errors.email) return;
 
-    // Create the message with form data
     const waMessage = `Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`;
-    
-    // Encoding message for WhatsApp
     const waHref = `https://wa.me/447494481443?text=${encodeURIComponent(waMessage)}`;
-    
-    // Open WhatsApp with the pre-filled message
     window.open(waHref, "_blank");
 
-    // Reset form data to initial values
     setFormData({
       fullName: "",
       email: "",
@@ -65,9 +116,8 @@ United Kingdom`;
           </p>
         </div>
 
-        {/* Layout: Info (left) + Form (right) */}
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* LEFT: Contact Information */}
+          {/* LEFT: Contact Info */}
           <div>
             <div className="bg-black border border-slate-700 rounded-xl p-6">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent mb-6">
@@ -96,10 +146,7 @@ United Kingdom`;
                   <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
                     Phone
                   </h4>
-                  <a
-                    href={phoneHref}
-                    className="text-cyan-400 hover:text-cyan-300 transition"
-                  >
+                  <a href={phoneHref} className="text-cyan-400 hover:text-cyan-300 transition">
                     {phoneDisplay}
                   </a>
                 </div>
@@ -108,15 +155,7 @@ United Kingdom`;
               {/* WhatsApp */}
               <div className="flex items-start space-x-4 mb-6">
                 <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-200/50">
-                  {/* WhatsApp icon */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 256 256"
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true">
                     <path d="M128 24a104 104 0 0 0-88.61 156.7L32 232l52.15-6.94A104 104 0 1 0 128 24Zm0 192a88 88 0 0 1-45.13-12.46l-3.26-1.94-31.1 4.14 4.22-30.62-2-3.33A88 88 0 1 1 128 216Zm48.9-54.21c-2.69 7.6-13.31 14.27-18.69 14.56-5 .28-11.34.4-32.82-9.72-27.6-13.18-45.51-39.08-46.91-40.94s-11.21-14.95-11.21-28.55 7.1-20.27 9.63-23.08a10.51 10.51 0 0 1 7.67-3.59c1.88 0 3.83 0 5.5.09a9.37 9.37 0 0 1 6.19 2.91c1.93 2.11 6.86 8.41 7.43 9.91s1.87 4.34.27 6.93-2.41 3.86-4.38 6.22c-2 2.35-4.15 4.19-1.78 8s7.69 12.63 16.53 20.45c11.36 10.09 20.92 13.21 24.59 14.7s5.93 1.24 8.13-.75 9.39-10.95 11.89-14.71 4.94-3.05 8.31-1.84 21.56 10.16 25.29 12c3.73 1.84 6.22 2.75 7.14 4.24s.95 7.54-1.74 15.13Z" />
                   </svg>
                 </div>
@@ -125,7 +164,9 @@ United Kingdom`;
                     WhatsApp
                   </h4>
                   <a
-                    href={`https://wa.me/447494481443?text=${encodeURIComponent(`Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`)}`}
+                    href={`https://wa.me/447494481443?text=${encodeURIComponent(
+                      `Hello, I need assistance. Here are the details:\n\nName: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCar Registration: ${formData.carReg}\nMake & Model: ${formData.makeModel}\nLocation: ${formData.location}\nMessage: ${formData.message}`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:text-cyan-300 transition"
@@ -144,16 +185,11 @@ United Kingdom`;
                   <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
                     Email
                   </h4>
-
-                  <a
-                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailDisplay}&su=Inquiry%20of%20Website`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 transition"
-                  >
+                  <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailDisplay}&su=Inquiry%20of%20Website`}
+                     target="_blank" rel="noopener noreferrer"
+                     className="text-cyan-400 hover:text-cyan-300 transition">
                     {emailDisplay}
                   </a>
-
                 </div>
               </div>
             </div>
@@ -162,100 +198,71 @@ United Kingdom`;
           {/* RIGHT: Form */}
           <div>
             <div className="bg-black border border-slate-700 rounded-xl">
-              <div className="p-6">
+              <div className="p-6 space-y-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Full Name */}
-                  <div>
-                    <input
-                      id="fullName"
-                      type="text"
-                      name="fullName"
-                      placeholder="Full Name"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                      required
-                    />
-                  </div>
+                  <InputField
+                    name="fullName"
+                    placeholder="Full Name"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                  />
+                  <InputField
+                    name="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    error={errors.email}
+                    required
+                  />
+                  <InputField
+                    name="phone"
+                    type="tel"
+                    placeholder="+44 7123 456789 or 07123456789"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    error={errors.phone}
+                    required
+                  />
 
-                  {/* Email */}
-                  <div>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                      required
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <input
-                      id="phone"
-                      type="tel"
-                      name="phone"
-                      placeholder="(123) 456-7890"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    />
-                  </div>
-
-                  {/* Car Reg | Make & Model | Location */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <input
-                      id="carReg"
-                      type="text"
+                    <InputField
                       name="carReg"
                       placeholder="Car Registration"
                       value={formData.carReg}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
-                    <input
-                      id="makeModel"
-                      type="text"
+                    <InputField
                       name="makeModel"
                       placeholder="Make and Model"
                       value={formData.makeModel}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
-                    <input
-                      id="location"
-                      type="text"
+                    <InputField
                       name="location"
                       placeholder="Location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     />
                   </div>
 
-                  {/* Message */}
-                  <div>
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your car issue"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={6}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-md text-white placeholder-slate-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                      required
-                    />
-                  </div>
+                  <InputField
+                    name="message"
+                    placeholder="Tell us about your car issue"
+                    value={formData.message}
+                    onChange={handleChange}
+                    textarea
+                    rows={6}
+                    required
+                  />
 
-                  {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-cyan-400 via-white to-rose-500 text-black hover:opacity-90 text-lg px-6 py-3 rounded-lg font-bold transition-colors"
+                    disabled={!!errors.phone || !!errors.email}
+                    className="w-full bg-gradient-to-r from-cyan-400 via-white to-rose-500 text-black hover:opacity-90 text-lg px-6 py-3 rounded-lg font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message Via Whatsapp
+                    Send Message Via WhatsApp
                   </button>
                 </form>
               </div>
