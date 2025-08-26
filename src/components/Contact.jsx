@@ -126,16 +126,24 @@ United Kingdom`;
 
               {/* Address */}
               <div className="flex items-start space-x-4 mb-6">
-                <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-200/50">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
-                    Address
-                  </h4>
-                  <p className="text-gray-300 whitespace-pre-line">{address}</p>
-                </div>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start space-x-4"
+                >
+                  <div className="bg-white text-black p-3 rounded-lg shadow-sm ring-1 ring-slate-200/50">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
+                      Address
+                    </h4>
+                    <p className="text-cyan-400 hover:text-cyan-300 whitespace-pre-line">{address}</p>
+                  </div>
+                </a>
               </div>
+
 
               {/* Phone */}
               <div className="flex items-start space-x-4 mb-6">
@@ -186,8 +194,8 @@ United Kingdom`;
                     Email
                   </h4>
                   <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailDisplay}&su=Inquiry%20of%20Website`}
-                     target="_blank" rel="noopener noreferrer"
-                     className="text-cyan-400 hover:text-cyan-300 transition">
+                    target="_blank" rel="noopener noreferrer"
+                    className="text-cyan-400 hover:text-cyan-300 transition">
                     {emailDisplay}
                   </a>
                 </div>
