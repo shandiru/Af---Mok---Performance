@@ -1,28 +1,25 @@
-// App.jsx
-// src/App.jsx
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Service from "./components/ServicesSection";
-import About from "./components/About";
-import Review from "./components/Review";
-import Contact from "./components/Contact";
+
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import WhyChooseUs from "./components/WhyChooseUs";
-
-
+import TermsConditions from "./components/Term";
+import Home from "./page/Home";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import ScrollToTop from "./components/ScrollToTop";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <>
+    <Router>
+      <ScrollToTop />
       <Header />
-      <Hero />
-      <Service />
-      <About />
-      <Review />
-      <WhyChooseUs />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 

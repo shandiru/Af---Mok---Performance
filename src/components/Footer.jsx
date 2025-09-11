@@ -1,5 +1,6 @@
 import React from "react";
 import { Facebook, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const address =
@@ -98,6 +99,12 @@ export default function Footer() {
                   EGR &amp; ADBLUE Delete
                 </a>
               </li>
+              <li>
+                <Link to="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link> {/* Updated link */}
+              </li>
+              <li>
+                <Link to="/terms-conditions" className="hover:text-gray-300">Terms & Conditions</Link> {/* Updated link */}
+              </li>
             </ul>
           </div>
 
@@ -152,6 +159,21 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2025 AF-MOK Performance. All rights reserved.</p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-2 text-center font-semibold text-gray-400">
+          <p>
+            Powered by{" "}
+            <a
+              href="https://www.ansely.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:underline"
+            >
+              Ansely
+            </a>
+          </p>
         </div>
       </div>
     </footer>
