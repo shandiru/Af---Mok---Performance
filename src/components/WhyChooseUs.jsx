@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
             >
               {/* Number badge */}
               <div className="mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center relative">
-                <span className="absolute inset-0 rounded-full bg-white/5 blur-[2px]" />
+                {/* ✅ Removed buggy blur layer */}
                 <span className="absolute inset-0 rounded-full ring-1 ring-white/10" />
                 <span
                   className="
@@ -79,6 +79,7 @@ export default function WhyChooseUs() {
                     w-14 h-14 rounded-full
                     bg-gradient-to-tr from-cyan-400 via-white to-rose-500
                     text-black font-extrabold
+                    [transform:translateZ(0)] will-change-transform
                   "
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -99,11 +100,18 @@ export default function WhyChooseUs() {
       {/* ✅ FIX for iPhone Gradient Text */}
       <style jsx global>{`
         .gradient-text {
-          background: linear-gradient(to right, #00E5FF, #ffffff, #FF2B2B);
-          background-clip: text;
+          background: linear-gradient(90deg, #00e5ff, #ffffff, #ff2b2b);
           -webkit-background-clip: text;
-          color: transparent;
           -webkit-text-fill-color: transparent;
+
+          /* ✅ Safari mask fallback */
+          -webkit-mask-image: linear-gradient(90deg, #00e5ff, #ffffff, #ff2b2b);
+          -webkit-mask-clip: text;
+          -webkit-mask-composite: source-over;
+
+          /* ✅ Helps Safari repaint gradient properly */
+          transform: translateZ(0);
+          will-change: transform;
         }
       `}</style>
     </section>
