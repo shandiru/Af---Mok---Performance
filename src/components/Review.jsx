@@ -1,4 +1,4 @@
-// Review.jsx
+'use client'
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, A11y } from "swiper/modules";
@@ -66,13 +66,11 @@ export default function Review() {
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">What Our </span>
-            <span className="bg-gradient-to-r from-cyan-400 via-white to-red-500 bg-clip-text text-transparent">
-              Customers Say
-            </span>
+            <span className="gradient-text">Customers Say</span>
           </h2>
           <p className="text-lg text-gray-300">
             Real feedback from clients who trust{" "}
-            <span className="font-semibold bg-gradient-to-r from-cyan-400 via-white to-red-500 bg-clip-text text-transparent">
+            <span className="font-semibold gradient-text">
               AF-MOK PERFORMANCE
             </span>
             .
@@ -109,6 +107,17 @@ export default function Review() {
           ))}
         </Swiper>
       </div>
+
+      {/* ✅ FIX for iPhone Gradient Text */}
+      <style jsx global>{`
+        .gradient-text {
+          background: linear-gradient(to right, #00E5FF, #ffffff, #FF2B2B);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+        }
+      `}</style>
     </section>
   );
 }
