@@ -1,102 +1,111 @@
-// WhyChooseUs.jsx
+'use client'
+
 import React from "react";
 
 export default function WhyChooseUs() {
-    const items = [
-        {
-            title: "PERFORMANCE-DRIVEN EXPERTISE",
-            desc:
-                "From Stage 1 and 2 remaps to DPF, EGR, and AdBlue solutions, we fine-tune your car for maximum power, efficiency, and responsiveness.",
-        },
-        {
-            title: "FULL-SERVICE SOLUTIONS",
-            desc:
-                "Whether it’s fault code diagnostics, stop-start system repairs, or routine servicing — we handle it under one roof to save you time.",
-        },
-        {
-            title: "PRECISION. PASSION. CARE.",
-            desc:
-                "We treat every car like our own. With top-tier tools and genuine passion, you can count on results that feel as good as they drive.",
-        },
-        {
-            title: "TRANSPARENT PRICING",
-            desc:
-                "Clear quotes with no surprises. You’ll know exactly what we’re doing and why — before we start any work.",
-        },
-        {
-            title: "FAST TURNAROUND",
-            desc:
-                "Flexible scheduling and efficient workflow to get you back on the road quickly, without compromising quality.",
-        },
-        {
-            title: "LOCAL & TRUSTED",
-            desc:
-                "Based in West Bromwich and serving the surrounding areas — relied on by drivers who value honest advice and solid results.",
-        },
-    ];
+  const items = [
+    {
+      title: "PERFORMANCE-DRIVEN EXPERTISE",
+      desc:
+        "From Stage 1 and 2 remaps to DPF, EGR, and AdBlue solutions, we fine-tune your car for maximum power, efficiency, and responsiveness.",
+    },
+    {
+      title: "FULL-SERVICE SOLUTIONS",
+      desc:
+        "Whether it’s fault code diagnostics, stop-start system repairs, or routine servicing — we handle it under one roof to save you time.",
+    },
+    {
+      title: "PRECISION. PASSION. CARE.",
+      desc:
+        "We treat every car like our own. With top-tier tools and genuine passion, you can count on results that feel as good as they drive.",
+    },
+    {
+      title: "TRANSPARENT PRICING",
+      desc:
+        "Clear quotes with no surprises. You’ll know exactly what we’re doing and why — before we start any work.",
+    },
+    {
+      title: "FAST TURNAROUND",
+      desc:
+        "Flexible scheduling and efficient workflow to get you back on the road quickly, without compromising quality.",
+    },
+    {
+      title: "LOCAL & TRUSTED",
+      desc:
+        "Based in West Bromwich and serving the surrounding areas — relied on by drivers who value honest advice and solid results.",
+    },
+  ];
 
-    return (
-        <section id="why" className="py-20 bg-black">
-            <div className="container mx-auto px-4 md:px-12">
-                {/* Eyebrow */}
-                <div className="text-center mb-2">
-                    <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gray-300">
-                        <span className="h-[2px] w-4 bg-gray-600 inline-block" />
-                        Built for Results
-                    </span>
-                </div>
+  return (
+    <section id="why" className="py-20 bg-black text-white">
+      <div className="container mx-auto px-4 md:px-12">
+        {/* Eyebrow */}
+        <div className="text-center mb-2">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gray-300">
+            <span className="h-[2px] w-4 bg-gray-600 inline-block" />
+            Built for Results
+          </span>
+        </div>
 
-                {/* Heading + Sub */}
-                <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h2 className="text-4xl md:text-5xl font-extrabold">
-                        <span className="text-white">Why Choose </span>
-                        {/* logo colours: cyan → white → red */}
-                        <span className="bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
-                            Us?
-                        </span>
-                    </h2>
-                    <p className="mt-4 text-lg text-gray-300">
-                        At{" "}
-                        <span className="font-semibold bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
-                            AF-MOK PERFORMANCE
-                        </span>
-                        , we do more than fix cars — we unlock their full potential.
-                    </p>
-                </div>
+        {/* Heading + Sub */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold">
+            <span className="text-white">Why Choose </span>
+            <span className="gradient-text">Us?</span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-300">
+            At{" "}
+            <span className="font-semibold gradient-text">
+              AF-MOK PERFORMANCE
+            </span>
+            , we do more than fix cars — we unlock their full potential.
+          </p>
+        </div>
 
-                {/* Grid */}
-                <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {items.map((it, i) => (
-                        <article
-                            key={i}
-                            className="bg-black border border-slate-800 rounded-2xl p-8 text-center shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-shadow"
-                        >
-                            {/* Number badge (style unchanged; only colours updated) */}
-                            <div className="mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center relative">
-                                <span className="absolute inset-0 rounded-full bg-white/5 blur-[2px]" />
-                                <span className="absolute inset-0 rounded-full ring-1 ring-white/10" />
-                                <span
-                                    className="
+        {/* Grid */}
+        <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((it, i) => (
+            <article
+              key={i}
+              className="bg-black border border-slate-800 rounded-2xl p-8 text-center shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-shadow"
+            >
+              {/* Number badge */}
+              <div className="mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center relative">
+                <span className="absolute inset-0 rounded-full bg-white/5 blur-[2px]" />
+                <span className="absolute inset-0 rounded-full ring-1 ring-white/10" />
+                <span
+                  className="
                     relative inline-flex items-center justify-center
                     w-14 h-14 rounded-full
                     bg-gradient-to-tr from-cyan-400 via-white to-rose-500
                     text-black font-extrabold
                   "
-                                >
-                                    {String(i + 1).padStart(2, "0")}
-                                </span>
-                            </div>
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
 
-                            {/* Card title in logo colours (layout unchanged) */}
-                            <h3 className="text-lg md:text-xl font-extrabold tracking-wide bg-gradient-to-r from-cyan-400 via-white to-rose-500 bg-clip-text text-transparent">
-                                {it.title}
-                            </h3>
+              {/* Card title */}
+              <h3 className="text-lg md:text-xl font-extrabold tracking-wide gradient-text">
+                {it.title}
+              </h3>
 
-                            <p className="mt-4 text-gray-300 leading-relaxed">{it.desc}</p>
-                        </article>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+              <p className="mt-4 text-gray-300 leading-relaxed">{it.desc}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* ✅ FIX for iPhone Gradient Text */}
+      <style jsx global>{`
+        .gradient-text {
+          background: linear-gradient(to right, #00E5FF, #ffffff, #FF2B2B);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+        }
+      `}</style>
+    </section>
+  );
 }
