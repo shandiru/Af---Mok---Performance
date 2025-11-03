@@ -13,11 +13,10 @@ export default function About() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Tuning
   const n = images.length || 1
-  const secondsPerImage = 10   // higher = slower (linear)
+  const secondsPerImage = 10
   const gapPx = 16
-  const EASING = 'linear'      // constant speed
+  const EASING = 'linear'
 
   return (
     <section id="about" className="py-20 bg-black text-white">
@@ -27,14 +26,14 @@ export default function About() {
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               ABOUT{' '}
-              <span className="bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
+              <span className="gradient-text">
                 AF-MOK
               </span>
             </h2>
 
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
               At{' '}
-              <span className="bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent font-semibold">
+              <span className="gradient-text font-semibold">
                 AF-MOK PERFORMANCE
               </span>
               , we're passionate about helping you get the most out of your vehicle.
@@ -54,21 +53,15 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
-                  1000+
-                </div>
+                <div className="text-3xl font-bold gradient-text">1000+</div>
                 <div className="text-gray-400 text-sm">Vehicles Tuned</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
-                  10+
-                </div>
+                <div className="text-3xl font-bold gradient-text">10+</div>
                 <div className="text-gray-400 text-sm">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-[#00E5FF] via-white to-[#FF2B2B] bg-clip-text text-transparent">
-                  98%
-                </div>
+                <div className="text-3xl font-bold gradient-text">98%</div>
                 <div className="text-gray-400 text-sm">Client Satisfaction</div>
               </div>
             </div>
@@ -82,7 +75,7 @@ export default function About() {
             </button>
           </div>
 
-          {/* Right: Seamless CSS-only auto-scroller (linear) */}
+          {/* Right: Auto-scroll gallery */}
           <div
             className="relative overflow-hidden rounded-2xl shadow-lg group"
             style={{ '--gap': `${gapPx}px` }}
@@ -120,11 +113,9 @@ export default function About() {
               </div>
             </div>
 
-            {/* Optional: soft gradient edges */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-black to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-black to-transparent" />
 
-            {/* Pause on hover (desktop) */}
             <style jsx>{`
               .group:hover div[style*='aboutscroll'] {
                 animation-play-state: paused;
@@ -137,6 +128,17 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {/* ✅ FIX for iPhone gradient text */}
+      <style jsx global>{`
+        .gradient-text {
+          background: linear-gradient(to right, #00E5FF, #ffffff, #FF2B2B);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+        }
+      `}</style>
     </section>
   )
 }
