@@ -71,16 +71,9 @@ export default function WhyChooseUs() {
             >
               {/* Number badge */}
               <div className="mx-auto mb-6 w-20 h-20 rounded-full grid place-items-center relative">
-                {/* ✅ Removed buggy blur layer */}
                 <span className="absolute inset-0 rounded-full ring-1 ring-white/10" />
                 <span
-                  className="
-                    relative inline-flex items-center justify-center
-                    w-14 h-14 rounded-full
-                    bg-gradient-to-tr from-cyan-400 via-white to-rose-500
-                    text-black font-extrabold
-                    [transform:translateZ(0)] will-change-transform
-                  "
+                  className="badge-gradient relative inline-flex items-center justify-center w-14 h-14 rounded-full text-black font-extrabold"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -97,21 +90,27 @@ export default function WhyChooseUs() {
         </div>
       </div>
 
-      {/* ✅ FIX for iPhone Gradient Text */}
+      {/* ✅ iPhone-safe gradient rendering */}
       <style jsx global>{`
         .gradient-text {
           background: linear-gradient(90deg, #00e5ff, #ffffff, #ff2b2b);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-
-          /* ✅ Safari mask fallback */
           -webkit-mask-image: linear-gradient(90deg, #00e5ff, #ffffff, #ff2b2b);
           -webkit-mask-clip: text;
-          -webkit-mask-composite: source-over;
-
-          /* ✅ Helps Safari repaint gradient properly */
           transform: translateZ(0);
           will-change: transform;
+        }
+
+        /* ✅ Force Safari to paint gradient in its own layer */
+        .badge-gradient {
+          background-image: linear-gradient(135deg, #00e5ff 0%, #ffffff 50%, #ff2b2b 100%);
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          -webkit-transform: translateZ(0);
+          will-change: transform;
+          backface-visibility: hidden;
+          isolation: isolate;
         }
       `}</style>
     </section>
