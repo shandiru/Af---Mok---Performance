@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,11 +17,11 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3">
-              <span className="text-2xl font-bold bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
+              <span className="text-2xl font-bold gradient-blue">
                 AF-MOK <span className="text-gray-400">PERFORMANCE</span>
               </span>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-4 mt-2">
               High-quality performance tuning and emissions solutions for cars
               and LCVs. Maximize your vehicle’s power, efficiency, and
               reliability.
@@ -75,9 +76,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
-              Services
-            </h3>
+            <h3 className="font-bold mb-4 gradient-blue">Services</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a href="#services" className="hover:text-white transition-colors">
@@ -100,19 +99,21 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link> {/* Updated link */}
+                <Link to="/privacy-policy" className="hover:text-gray-300">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <Link to="/terms-conditions" className="hover:text-gray-300">Terms & Conditions</Link> {/* Updated link */}
+                <Link to="/terms-conditions" className="hover:text-gray-300">
+                  Terms & Conditions
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-bold mb-4 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent">
-              Contact Info
-            </h3>
+            <h3 className="font-bold mb-4 gradient-blue">Contact Info</h3>
             <ul className="space-y-2 text-gray-400">
               <li>AF-MOK Performance</li>
               <li>
@@ -121,7 +122,6 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
-                  aria-label="View AF-MOK Performance on Google Maps"
                 >
                   Unit 6, Spon Lane Trading Estate,
                   <br />
@@ -136,7 +136,6 @@ export default function Footer() {
                 <a
                   href="tel:+447494481443"
                   className="hover:text-white transition-colors"
-                  aria-label="Call AF-MOK Performance"
                 >
                   +44 7494 481443
                 </a>
@@ -147,7 +146,6 @@ export default function Footer() {
                 <a
                   href="mailto:afmok.performance@outlook.com"
                   className="hover:text-white transition-colors break-all"
-                  aria-label="Email AF-MOK Performance"
                 >
                   afmok.performance@outlook.com
                 </a>
@@ -176,6 +174,23 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      {/* ✅ Safari gradient rendering fix */}
+      <style jsx global>{`
+        .gradient-blue {
+          background: linear-gradient(90deg, #00c6ff, #0072ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          /* Safari/iPhone fix */
+          -webkit-mask-image: linear-gradient(90deg, #00c6ff, #0072ff);
+          -webkit-mask-clip: text;
+          -webkit-mask-composite: source-over;
+
+          transform: translateZ(0);
+          will-change: transform;
+        }
+      `}</style>
     </footer>
   );
 }
