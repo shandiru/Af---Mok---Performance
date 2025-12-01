@@ -142,9 +142,7 @@ United Kingdom`;
               {/* Address */}
               <div className="flex items-start space-x-4 mb-6">
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    address
-                  )}`}
+                  href="https://maps.app.goo.gl/PQoeNHRGmgSawQz89"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start space-x-4"

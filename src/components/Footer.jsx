@@ -7,8 +7,7 @@ export default function Footer() {
   const address =
     "AF-MOK Performance, Unit 6, Spon Lane Trading Estate, Varney Ave, West Bromwich B70 6AE, United Kingdom";
   const mapsUrl =
-    "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent(address);
+    "https://maps.app.goo.gl/PQoeNHRGmgSawQz89";
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12">
