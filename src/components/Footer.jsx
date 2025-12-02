@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   const address =
-    "AF-MOK Performance, Unit 6, Spon Lane Trading Estate, Varney Ave, West Bromwich B70 6AE, United Kingdom";
+    "AF-MOK Performance, UNIT 7, Wynns Venture Centre, Broad St, Cannock WS11 0XL, United Kingdom";
   const mapsUrl =
-    "https://maps.app.goo.gl/PQoeNHRGmgSawQz89";
+    "https://maps.app.goo.gl/ck1ahsqozPhCd2m56";
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12">
@@ -122,9 +122,9 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Unit 6, Spon Lane Trading Estate,
+                  UNIT 7, Wynns Venture Centre, Broad St,
                   <br />
-                  Varney Ave, West Bromwich B70 6AE,
+                   Cannock WS11 0XL,
                   <br />
                   United Kingdom
                 </a>

@@ -112,9 +112,7 @@ export default function Contact() {
   const phoneDisplay = "+44 7494 481443";
   const phoneHref = "tel:+447494481443";
   const emailDisplay = "afmok.performance@outlook.com";
-  const address = `Unit 6, Spon Lane Trading Estate,
-Varney Ave, West Bromwich B70 6AE,
-United Kingdom`;
+  const address = `UNIT 7, Wynns Venture Centre, Broad St, Cannock WS11 0XL, United Kingdom`;
 
   return (
     <section id="contact" className="py-20 bg-black text-white">
