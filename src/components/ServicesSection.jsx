@@ -1,24 +1,49 @@
 import React from "react";
-import { Target, Users, Zap } from "lucide-react";
+import {
+  Gauge,
+  Rocket,
+  Factory,
+  Wrench,
+  Car,
+  ScanSearch,
+} from "lucide-react";
 
 const services = [
   {
-    icon: <Zap size={48} stroke="#00E6FF" />, // electric cyan
+    icon: <Gauge size={48} stroke="#00E6FF" />, // electric cyan
     title: "Stage/ECO Map",
     description:
       "With our Economy services, your vehicle software will be adapted to improve fuel economy and reduce emissions.",
   },
   {
-    icon: <Target size={48} stroke="#FF3B3B" />, // neon red
+    icon: <Rocket size={48} stroke="#FF3B3B" />, // neon red
     title: "Performance Software",
     description:
       "Unlock your vehicle’s full potential. Adjust performance parameters without hardware changes and enjoy a more thrilling, efficient drive.",
   },
   {
-    icon: <Users size={48} stroke="#18BFEA" />, // softer teal accent
+    icon: <Factory size={48} stroke="#18BFEA" />, // teal
     title: "DPF/EGR/ADBLUE",
     description:
       "We offer tailored emission software solutions based on a deep understanding of vehicle architecture and compliance requirements.",
+  },
+  {
+    icon: <Wrench size={48} stroke="#18BFEA" />, // teal
+    title: "Mechanical & Electrical Repairs",
+    description:
+      "Expert repair of all mechanical and electrical components, ensuring reliability, safety, and optimal vehicle performance through precise fault finding and professional workmanship.",
+  },
+  {
+    icon: <Car size={48} stroke="#FF3B3B" />, // teal
+    title: "Vehicle Maintenance & Repairs",
+    description:
+      "Comprehensive servicing and repairs designed to extend vehicle life, improve efficiency, prevent breakdowns, and keep your car running smoothly year-round.",
+  },
+  {
+    icon: <ScanSearch size={48} stroke="#18BFEA" />, // teal
+    title: "Diagnostics & Investigations",
+    description:
+      "Advanced diagnostic testing to identify faults quickly and accurately, enabling targeted repairs, reduced downtime, and complete confidence in your vehicle’s condition.",
   },
 ];
 
@@ -30,9 +55,11 @@ export default function Services() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-wide">
             <span className="text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]">OUR</span>{" "}
-            <span className="text-transparent bg-clip-text"
+            <span
+              className="text-transparent bg-clip-text"
               style={{
-                backgroundImage: "linear-gradient(90deg, #00E6FF 0%, #DCE5EB 50%, #FF3B3B 100%)"
+                backgroundImage:
+                  "linear-gradient(90deg, #00E6FF 0%, #DCE5EB 50%, #FF3B3B 100%)",
               }}
             >
               SERVICES
@@ -53,8 +80,13 @@ export default function Services() {
                          hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,230,255,0.35)]"
             >
               {/* subtle neon glow overlay */}
-              <div className="absolute inset-0 rounded-xl opacity-0 hover:opacity-20 transition"
-                style={{ background: "radial-gradient(circle at top, #00E6FF, transparent 70%)" }} />
+              <div
+                className="absolute inset-0 rounded-xl opacity-0 hover:opacity-20 transition"
+                style={{
+                  background:
+                    "radial-gradient(circle at top, #00E6FF, transparent 70%)",
+                }}
+              />
 
               <div className="relative p-6 text-center z-10">
                 <div className="mb-4 flex justify-center">{service.icon}</div>

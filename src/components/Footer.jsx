@@ -2,12 +2,10 @@
 import React from "react";
 import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Footer() {
-  const address =
-    "AF-MOK Performance, UNIT 7, Wynns Venture Centre, Broad St, Cannock WS11 0XL, United Kingdom";
-  const mapsUrl =
-    "https://maps.app.goo.gl/ck1ahsqozPhCd2m56";
+  const mapsUrl = "https://maps.app.goo.gl/ck1ahsqozPhCd2m56";
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12">
@@ -25,6 +23,8 @@ export default function Footer() {
               and LCVs. Maximize your vehicle’s power, efficiency, and
               reliability.
             </p>
+
+            {/* Social Icons */}
             <div className="flex space-x-4">
               {/* Facebook */}
               <a
@@ -73,39 +73,39 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Services - using HashLink */}
           <div>
             <h3 className="font-bold mb-4 gradient-blue">Services</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <HashLink smooth to="/#services" className="hover:text-white transition-colors">
+                  Stage/ECO Map
+                </HashLink>
+              </li>
+              <li>
+                <HashLink smooth to="/#services" className="hover:text-white transition-colors">
                   Performance Software
-                </a>
+                </HashLink>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Economy Tuning
-                </a>
+                <HashLink smooth to="/#services" className="hover:text-white transition-colors">
+                  DPF/EGR/ADBLUE
+                </HashLink>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  DPF Solutions
-                </a>
+                <HashLink smooth to="/#services" className="hover:text-white transition-colors">
+                  Mechanical & Electrical Repairs
+                </HashLink>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  EGR &amp; ADBLUE Delete
-                </a>
+                <HashLink smooth to="/#services" className="hover:text-white transition-colors">
+                  Vehicle Maintenance & Repairs
+                </HashLink>
               </li>
               <li>
-                <Link to="/privacy-policy" className="hover:text-gray-300">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-conditions" className="hover:text-gray-300">
-                  Terms & Conditions
-                </Link>
+                <HashLink smooth to="/#services" className="hover:text-white transition-colors">
+                  Diagnostics & Investigations
+                </HashLink>
               </li>
             </ul>
           </div>
@@ -115,6 +115,7 @@ export default function Footer() {
             <h3 className="font-bold mb-4 gradient-blue">Contact Info</h3>
             <ul className="space-y-2 text-gray-400">
               <li>AF-MOK Performance</li>
+
               <li>
                 <a
                   href={mapsUrl}
@@ -124,7 +125,7 @@ export default function Footer() {
                 >
                   UNIT 7, Wynns Venture Centre, Broad St,
                   <br />
-                   Cannock WS11 0XL,
+                  Cannock WS11 0XL,
                   <br />
                   United Kingdom
                 </a>
@@ -132,10 +133,7 @@ export default function Footer() {
 
               {/* Phone */}
               <li>
-                <a
-                  href="tel:+447494481443"
-                  className="hover:text-white transition-colors"
-                >
+                <a href="tel:+447494481443" className="hover:text-white transition-colors">
                   +44 7494 481443
                 </a>
               </li>
@@ -159,14 +157,32 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-2 text-center font-semibold text-gray-400">
-          <p>
+        <div className="mt-2 flex flex-col sm:flex-row justify-center items-center gap-3 text-center font-semibold text-gray-400">
+          {/* Left */}
+          <div className="flex gap-4 text-sm">
+            <Link
+              to="/terms-conditions"
+              className="text-gray-400 hover:text-[#00c6ff] transition duration-300"
+            >
+              Terms & Conditions
+            </Link>
+            <span className="text-gray-500">|</span>
+            <Link
+              to="/privacy-policy"
+              className="text-gray-400 hover:text-[#00c6ff] transition duration-300"
+            >
+              Privacy Policy
+            </Link>
+          </div>
+
+          {/* Powered by Ansely */}
+          <p className="text-center font-semibold text-gray-400">
             Powered by{" "}
             <a
               href="https://www.ansely.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:underline"
+              className="text-[#4ab8e9] hover:underline"
             >
               Ansely
             </a>
@@ -174,20 +190,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ✅ Safari gradient rendering fix */}
+      {/* Safari Gradient Fix */}
       <style jsx global>{`
         .gradient-blue {
           background: linear-gradient(90deg, #00c6ff, #0072ff);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-
-          /* Safari/iPhone fix */
           -webkit-mask-image: linear-gradient(90deg, #00c6ff, #0072ff);
           -webkit-mask-clip: text;
-          -webkit-mask-composite: source-over;
-
           transform: translateZ(0);
-          will-change: transform;
         }
       `}</style>
     </footer>
